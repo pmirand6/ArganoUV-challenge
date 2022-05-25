@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GithubController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [GithubController::class, 'index'])->name('github.index');
+Route::post('/repos', [GithubController::class, 'pullRepos'])->name('github.pull.repos');
